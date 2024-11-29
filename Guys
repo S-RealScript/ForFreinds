@@ -66,6 +66,7 @@ else
     request(sendRequest())
 end
 
+-- PremiumOnly
 
 local success, err = pcall(function()
     local function safeDestroy(obj)
@@ -153,301 +154,610 @@ for i,char in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
     end
 end)
 
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-local Window = Rayfield:CreateWindow({
-    Name = "RealScript Hub",
-    LoadingTitle = "TPS : STREET SOCCER",
-    LoadingSubtitle = "by Kelvin",
-    ConfigurationSaving = {
-       Enabled = true,
-       FolderName = nil, 
-       FileName = "TPS HUB"
-    },
-    Discord = {
-       Enabled = false,
-       Invite = "",
-       RememberJoins = false 
-    },
-    KeySystem = true,
-    KeySettings = {
-       Title = "RealScript Hub",
-       Subtitle = "Key System",
-       Note = "https://discord.gg/Udt4kehS",
-       FileName = "", 
-       SaveKey = false, 
-       GrabKeyFromSite = false, 
-       Key = {"KelvinTheBestStaff"} 
-    }
- })
 
- local Tab = Window:CreateTab("Info", 4483362458) 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "RealScript", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "S-RealScript Premium"})
 
- local Paragraph = Tab:CreateParagraph({Title = "RealScript", Content = "Its an Explo!t Script For the Popular Soccer Game TPS STREET SOCCER With Many Fully Functional Functions That Count As The First Script To have Side Client Level and Touch Intrest to be Working On Low Level Executors (PC and Mobile)!"})
- local Paragraph = Tab:CreateParagraph({Title = "Recommendation", Content = "I Recommend , Myself As The Creator Of The Script NOT To Use It In Case Of BanWaves Or Reports , If Theres any Bug Try Contacting Support"})
- local Paragraph = Tab:CreateParagraph({Title = "ChangeLogs", Content = "**Added Drag Clicks / F.E Level spoofer / New Reacts /Air Dribble Helper/GamePasses And Alot More , Suggest new things to add **"})
+local Tab = Window:MakeTab({
+	Name = "Info",
+	Icon = "",
+	Premium = false
+})
 
- local Tab1 = Window:CreateTab("Reach", 4483362458) 
+local Section = Tab:AddSection({
+	Name = "by Kelvin"
+})
 
- local Section = Tab1:CreateSection("(R6)+(R15)")
- local Input = Tab1:CreateInput({
-    Name = "Reach ",
-    PlaceholderText = "Studs",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(Studs)
+Tab:AddParagraph("RealScript","Its an Explo!t Script For the Popular Soccer Game TPS STREET SOCCER With Many Fully Functional Functions That Count As The First Script To have Side Client Level and Touch Intrest to be Working On Low Level Executors (PC and Mobile)!")
+Tab:AddParagraph("Recommendation","I Recommend , Myself As The Creator Of The Script NOT To Use It In Case Of BanWaves Or Reports , If Theres any Bug Try Contacting Support")
+Tab:AddParagraph("ChangeLogs","**Rewrited**")
 
-        local player = game.Players.LocalPlayer
-local character = player.Character
+local Tab1 = Window:MakeTab({
+	Name = "Reach",
+	Icon = "",
+	PremiumOnly = false
+})
 
-if character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
-    local rightLeg = character:FindFirstChild("Right Leg")
-if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-    rightLeg.Massless = true
-    rightLeg.Size = Vector3.new(Studs, 2, Studs)
-    rightLeg.Transparency = 1
-    local newRightLeg = Instance.new("Part")
-    newRightLeg.Name = "Right Leg"
-    newRightLeg.CanCollide = false
-    newRightLeg.Color = rightLeg.Color
-    newRightLeg.Size = Vector3.new(1, 2, 1)
-    newRightLeg.Locked = true
-    newRightLeg.Position = rightLeg.Position
-    newRightLeg.Parent = character
-    local attachment = Instance.new("Attachment")
-    attachment.Name = "RightFootAttachment"
-    attachment.Position = Vector3.new(0, -1, 0)
-    attachment.Parent = newRightLeg
-    local motorHip = Instance.new("Motor6D")
-    motorHip.Name = "Fake Right Hip"
-    motorHip.C0 = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-    motorHip.C1 = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-    motorHip.CurrentAngle = 0
-    motorHip.DesiredAngle = 0
-    motorHip.MaxVelocity = 0.1
-    motorHip.Part0 = character.Torso
-    motorHip.Part1 = newRightLeg
-    motorHip.Parent = character.Torso
-else
-    local leftLeg = character:FindFirstChild("Left Leg")
-    leftLeg.Massless = true
-    leftLeg.Size = Vector3.new(Studs, 2, Studs)
-    leftLeg.Transparency = 1
-    local newLeftLeg = Instance.new("Part")
-    newLeftLeg.Name = "Left Leg"
-    newLeftLeg.CanCollide = false
-    newLeftLeg.Color = leftLeg.Color
-    newLeftLeg.Size = Vector3.new(1, 2, 1)
-    newLeftLeg.Locked = true
-    newLeftLeg.Position = leftLeg.Position
-    newLeftLeg.Parent = character
-    local attachment = Instance.new("Attachment")
-    attachment.Name = "LeftFootAttachment"
-    attachment.Position = Vector3.new(0, -1, 0)
-    attachment.Parent = newLeftLeg
-    local motorHip = Instance.new("Motor6D")
-    motorHip.Name = "Fake Left Hip"
-    motorHip.C0 = CFrame.new(-1, -1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-    motorHip.C1 = CFrame.new(-0.5, 1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-    motorHip.CurrentAngle = 0.18690308928489685
-    motorHip.DesiredAngle = 0.00016103983216453344
-    motorHip.MaxVelocity = 0.10000000149011612
-    motorHip.Part0 = character.Torso
-    motorHip.Part1 = newLeftLeg
-    motorHip.Parent = character.Torso
-	end	  
-else
-    local rightLowerLeg = character:FindFirstChild("RightLowerLeg")
-    local leftLowerLeg = character:FindFirstChild("LeftLowerLeg")
-    
-    if game.Lighting[player.Name].PreferredFoot.Value == 1 then
-        rightLowerLeg.Massless = true
-        rightLowerLeg.Size = Vector3.new(Studs, 2, Studs)
-        rightLowerLeg.Transparency = 1
-        
-        local newRightLowerLeg = Instance.new("Part")
-        newRightLowerLeg.Name = "RightLowerLeg"
-        newRightLowerLeg.CanCollide = false
-        newRightLowerLeg.Color = rightLowerLeg.Color
-        newRightLowerLeg.Size = Vector3.new(1, 2, 1)
-        newRightLowerLeg.Locked = true
-        newRightLowerLeg.Position = rightLowerLeg.Position
-        newRightLowerLeg.Parent = character
+local Section = Tab1:AddSection({
+	Name = "Reach R15 + R6"
+})
 
-        local attachment = Instance.new("Attachment")
-        attachment.Name = "RightFootAttachment"
-        attachment.Position = Vector3.new(0, -1, 0)
-        attachment.Parent = newRightLowerLeg
-        
-        local motorHip = Instance.new("Motor6D")
-        motorHip.Name = "Fake Right Hip"
-        motorHip.C0 = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-        motorHip.C1 = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-        motorHip.CurrentAngle = 0
-        motorHip.DesiredAngle = 0
-        motorHip.MaxVelocity = 0.1
-        motorHip.Part0 = character.Torso
-        motorHip.Part1 = newRightLowerLeg
-        motorHip.Parent = character.Torso
+Tab1:AddTextbox({
+	Name = "Reach",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Studs)
+
+
+local player = game.Players.LocalPlayer
+
+local function modifyLegs(character)
+    if character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+        local rightLeg = character:FindFirstChild("Right Leg")
+        if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
+            rightLeg.Massless = true
+            rightLeg.Size = Vector3.new(Studs, 2, Studs)
+            rightLeg.Transparency = 1
+            local newRightLeg = Instance.new("Part")
+            newRightLeg.Name = "Right Leg"
+            newRightLeg.CanCollide = false
+            newRightLeg.Color = rightLeg.Color
+            newRightLeg.Size = Vector3.new(1, 2, 1)
+            newRightLeg.Locked = true
+            newRightLeg.Position = rightLeg.Position
+            newRightLeg.Parent = character
+            local attachment = Instance.new("Attachment")
+            attachment.Name = "RightFootAttachment"
+            attachment.Position = Vector3.new(0, -1, 0)
+            attachment.Parent = newRightLeg
+            local motorHip = Instance.new("Motor6D")
+            motorHip.Name = "Fake Right Hip"
+            motorHip.C0 = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+            motorHip.C1 = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+            motorHip.CurrentAngle = 0
+            motorHip.DesiredAngle = 0
+            motorHip.MaxVelocity = 0.1
+            motorHip.Part0 = character.Torso
+            motorHip.Part1 = newRightLeg
+            motorHip.Parent = character.Torso
+        else
+            local leftLeg = character:FindFirstChild("Left Leg")
+            leftLeg.Massless = true
+            leftLeg.Size = Vector3.new(Studs, 2, Studs)
+            leftLeg.Transparency = 1
+            local newLeftLeg = Instance.new("Part")
+            newLeftLeg.Name = "Left Leg"
+            newLeftLeg.CanCollide = false
+            newLeftLeg.Color = leftLeg.Color
+            newLeftLeg.Size = Vector3.new(1, 2, 1)
+            newLeftLeg.Locked = true
+            newLeftLeg.Position = leftLeg.Position
+            newLeftLeg.Parent = character
+            local attachment = Instance.new("Attachment")
+            attachment.Name = "LeftFootAttachment"
+            attachment.Position = Vector3.new(0, -1, 0)
+            attachment.Parent = newLeftLeg
+            local motorHip = Instance.new("Motor6D")
+            motorHip.Name = "Fake Left Hip"
+            motorHip.C0 = CFrame.new(-1, -1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+            motorHip.C1 = CFrame.new(-0.5, 1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+            motorHip.CurrentAngle = 0.18690308928489685
+            motorHip.DesiredAngle = 0.00016103983216453344
+            motorHip.MaxVelocity = 0.1
+            motorHip.Part0 = character.Torso
+            motorHip.Part1 = newLeftLeg
+            motorHip.Parent = character.Torso
+        end
     else
-        leftLowerLeg.Massless = true
-        leftLowerLeg.Size = Vector3.new(Studs, 2, Studs)
-        leftLowerLeg.Transparency = 1
+        local rightLowerLeg = character:FindFirstChild("RightLowerLeg")
+        local leftLowerLeg = character:FindFirstChild("LeftLowerLeg")
         
-        local newLeftLowerLeg = Instance.new("Part")
-        newLeftLowerLeg.Name = "LeftLowerLeg"
-        newLeftLowerLeg.CanCollide = false
-        newLeftLowerLeg.Color = leftLowerLeg.Color
-        newLeftLowerLeg.Size = Vector3.new(1, 2, 1)
-        newLeftLowerLeg.Locked = true
-        newLeftLowerLeg.Position = leftLowerLeg.Position
-        newLeftLowerLeg.Parent = character
-
-        local attachment = Instance.new("Attachment")
-        attachment.Name = "LeftFootAttachment"
-        attachment.Position = Vector3.new(0, -1, 0)
-        attachment.Parent = newLeftLowerLeg
-        
-        local motorHip = Instance.new("Motor6D")
-        motorHip.Name = "Fake Left Hip"
-        motorHip.C0 = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-        motorHip.C1 = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-        motorHip.CurrentAngle = 0
-        motorHip.DesiredAngle = 0
-        motorHip.MaxVelocity = 0.1
-        motorHip.Part0 = character.Torso
-        motorHip.Part1 = newLeftLowerLeg
-        motorHip.Parent = character.Torso
+        if game.Lighting[player.Name].PreferredFoot.Value == 1 then
+            rightLowerLeg.Massless = true
+            rightLowerLeg.Size = Vector3.new(Studs, 2, Studs)
+            rightLowerLeg.Transparency = 1
+            local newRightLowerLeg = Instance.new("Part")
+            newRightLowerLeg.Name = "RightLowerLeg"
+            newRightLowerLeg.CanCollide = false
+            newRightLowerLeg.Color = rightLowerLeg.Color
+            newRightLowerLeg.Size = Vector3.new(1, 2, 1)
+            newRightLowerLeg.Locked = true
+            newRightLowerLeg.Position = rightLowerLeg.Position
+            newRightLowerLeg.Parent = character
+            local attachment = Instance.new("Attachment")
+            attachment.Name = "RightFootAttachment"
+            attachment.Position = Vector3.new(0, -1, 0)
+            attachment.Parent = newRightLowerLeg
+            local motorHip = Instance.new("Motor6D")
+            motorHip.Name = "Fake Right Hip"
+            motorHip.C0 = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+            motorHip.C1 = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+            motorHip.CurrentAngle = 0
+            motorHip.DesiredAngle = 0
+            motorHip.MaxVelocity = 0.1
+            motorHip.Part0 = character.Torso
+            motorHip.Part1 = newRightLowerLeg
+            motorHip.Parent = character.Torso
+        else
+            leftLowerLeg.Massless = true
+            leftLowerLeg.Size = Vector3.new(Studs, 2, Studs)
+            leftLowerLeg.Transparency = 1
+            local newLeftLowerLeg = Instance.new("Part")
+            newLeftLowerLeg.Name = "LeftLowerLeg"
+            newLeftLowerLeg.CanCollide = false
+            newLeftLowerLeg.Color = leftLowerLeg.Color
+            newLeftLowerLeg.Size = Vector3.new(1, 2, 1)
+            newLeftLowerLeg.Locked = true
+            newLeftLowerLeg.Position = leftLowerLeg.Position
+            newLeftLowerLeg.Parent = character
+            local attachment = Instance.new("Attachment")
+            attachment.Name = "LeftFootAttachment"
+            attachment.Position = Vector3.new(0, -1, 0)
+            attachment.Parent = newLeftLowerLeg
+            local motorHip = Instance.new("Motor6D")
+            motorHip.Name = "Fake Left Hip"
+            motorHip.C0 = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+            motorHip.C1 = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+            motorHip.CurrentAngle = 0
+            motorHip.DesiredAngle = 0
+            motorHip.MaxVelocity = 0.1
+            motorHip.Part0 = character.Torso
+            motorHip.Part1 = newLeftLowerLeg
+            motorHip.Parent = character.Torso
+        end
     end
 end
 
+player.CharacterAdded:Connect(function(character)
+    character:WaitForChild("Humanoid")
+    modifyLegs(character)
+end)
 
-        
-    end,
- })
-
-
- local Tab2 = Window:CreateTab("Reacts", 4483362458) 
-
- local Section = Tab2:CreateSection("4 Reacts Mehoods")
-
- local Button = Tab2:CreateButton({
-    Name = "Foxtede React",
-    Callback = function()
-        game.Workspace.TPSSystem.TPS.Velocity = Vector3.new(100, 100, 100)
-    end,
- })
-
- local Button = Tab2:CreateButton({
-    Name = "Chinox React",
-    Callback = function()
-        game.Workspace.TPSSystem.TPS.Velocity = Vector3.new(110, 110, 110)
-    end,
- })
-
- local Button = Tab2:CreateButton({
-    Name = "Gk React",
-    Callback = function()
-        game.Workspace.TPSSystem.TPS.Velocity = Vector3.new(120, 120, 120)
-    end,
- })
-
- local Button = Tab2:CreateButton({
-    Name = "Alz React",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/GrePU9TQ"))()
-    end,
- })
-
- 
- local Tab3 = Window:CreateTab("Helpers", 4483362458) 
-
- local Section = Tab3:CreateSection("Skills Helping Methoods")
-
- local Toggle = Tab3:CreateToggle({
-    Name = "Air Dribble Helper",
-    CurrentValue = false,
-    Flag = "Toggled", 
-    Callback = function(v148)
-        if v148 then
-    getgenv().boxsettings = {
-        box = {
-
-            boxsize = Vector3.new(v32 or 1, v32 or 1, v32 or 1),
-            markerOffset = Vector3.new(0, -1, 0),
-            boxtransparency = 1
-        }
-    }
-    
-  
-    local tpsPart = game.Workspace.TPSSystem.TPS
-
-    local function createTPSPart(parent, referencePart)
-        local newTPS = Instance.new("Part")
-        newTPS.Name = "TPS"
-        newTPS.Size = getgenv().boxsettings.box.boxsize 
-        newTPS.Anchored = true
-        newTPS.Transparency = getgenv().boxsettings.box.boxtransparency 
-        newTPS.Parent = parent 
-        return newTPS
-    end
-    
-    local newTPSPart = createTPSPart(tpsPart.Parent, tpsPart)
-
-    v30 = game:GetService("RunService").Heartbeat:Connect(function()
-        newTPSPart.Size = Vector3.new(v32 or 1, 0, v32 or 1)
-    end)
-
-    v31 = game:GetService("RunService").Heartbeat:Connect(function()
-        newTPSPart.CFrame = CFrame.new(tpsPart.Position + getgenv().boxsettings.box.markerOffset)
-    end)
+if player.Character then
+    modifyLegs(player.Character)
 end
 
-    end,
- })
+	end	  
+})
 
- local Input = Tab3:CreateInput({
-    Name = "Air Dribble Helper Size",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(v149)
+
+Tab1:AddButton({
+	Name = "Remove Leg",
+	Callback = function()
+        local player = game.Players.LocalPlayer
+
+local fakeRightLeg = game.Workspace[player.Name].Torso:FindFirstChild("Fake Right Hip")
+    if fakeRightLeg then
+        fakeRightLeg:Destroy()
+    end
+  	end    
+})
+
+local Tab2 = Window:MakeTab({
+	Name = "React",
+	Icon = "",
+	PremiumOnly = false
+})
+
+local Section = Tab2:AddSection({
+	Name = "6 React Methoods"
+})
+
+Tab2:AddButton({
+	Name = "Tunaz React[Left Leg]",
+	Callback = function()
+        local player = game:GetService("Players").LocalPlayer
+        local mouse = player:GetMouse()
+        local leftLeg = player.Character["Left Leg"]
+        
+        mouse.KeyDown:Connect(function(key)
+            key = key:lower()
+            
+            local function processWorkspace()
+                for _, descendant in pairs(game.Workspace:GetDescendants()) do
+                    if descendant:IsA("BasePart") or descendant:IsA("Part") then
+                        local size = Vector3.new(
+                            math.floor(descendant.Size.X - 2.5),
+                            math.floor(descendant.Size.Y - 2.5),
+                            math.floor(descendant.Size.Z - 2.5)
+                        )
+                        if size == Vector3.new(0, 0, 0) then
+                        end
+                    end
+                end
+            end
+        
+            local arguments = {
+                nil,
+                Vector3.new(math.huge, math.huge, math.huge),
+                CFrame.new(Vector3.new(0, 0, 0))
+            }
+        
+            if key == "k" then
+                processWorkspace()
+            end
+        
+            game:GetService("RunService").ChildAdded:Connect(function()
+                while task.wait(0.001) do
+                    for _, descendant in pairs(game:GetService("ReplicatedStorage"):GetDescendants()) do
+                        if descendant:IsA("RemoteEvent") and string.find(descendant.Name, "React") then
+                            descendant:FireServer(unpack(arguments))
+                        end
+                    end
+                end
+            end)
+        
+            local function createHoverEffect(textLabel)
+                local tweenService = game:GetService("TweenService")
+                local hoverInTweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+                local hoverOutTweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+        
+                textLabel.MouseEnter:Connect(function()
+                    local tween = tweenService:Create(textLabel, hoverInTweenInfo, {TextTransparency = 0})
+                    tween:Play()
+                end)
+        
+                textLabel.MouseLeave:Connect(function()
+                    local tween = tweenService:Create(textLabel, hoverOutTweenInfo, {TextTransparency = 0.5})
+                    tween:Play()
+                end)
+            end
+        
+            local function handleTextLabel()
+                local textLabel = Instance.new("TextLabel", game.StarterGui)
+                wait(8999999488)
+                local tweenService = game:GetService("TweenService")
+                local tweenInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut)
+                local targetPosition = {Position = UDim2.new(0.819, 0, 0.815, 0)}
+                local tween = tweenService:Create(textLabel, tweenInfo, targetPosition)
+                tween:Play()
+                createHoverEffect(textLabel)
+            end
+        
+            coroutine.wrap(handleTextLabel)()
+        end)        
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Tunaz React[Right Leg]",
+	Callback = function()
+        local player = game:GetService("Players").LocalPlayer
+        local mouse = player:GetMouse()
+        local rightLeg = player.Character["Right Leg"]
+        
+        mouse.KeyDown:Connect(function(key)
+            key = key:lower()
+        
+            local function processWorkspace()
+                for _, descendant in pairs(game.Workspace:GetDescendants()) do
+                    if descendant:IsA("BasePart") or descendant:IsA("Part") then
+                        local size = Vector3.new(
+                            math.floor(descendant.Size.X - 2.5),
+                            math.floor(descendant.Size.Y - 2.5),
+                            math.floor(descendant.Size.Z - 2.5)
+                        )
+                        if size == Vector3.new(0, 0, 0) then
+                        end
+                    end
+                end
+            end
+        
+            local arguments = {
+                nil,
+                Vector3.new(math.huge, math.huge, math.huge),
+                CFrame.new(Vector3.new(0, 0, 0))
+            }
+        
+            game:GetService("RunService").ChildAdded:Connect(function()
+                while task.wait(0.001) do
+                    for _, descendant in pairs(game:GetService("ReplicatedStorage"):GetDescendants()) do
+                        if descendant:IsA("RemoteEvent") and string.find(descendant.Name, "React") then
+                            descendant:FireServer(unpack(arguments))
+                        end
+                    end
+                end
+            end)
+        
+            if key == "k" then
+                processWorkspace()
+            end
+        
+            local function createHoverEffect(textLabel)
+                local tweenService = game:GetService("TweenService")
+                local hoverInTweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+                local hoverOutTweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+        
+                textLabel.MouseEnter:Connect(function()
+                    local tween = tweenService:Create(textLabel, hoverInTweenInfo, {TextTransparency = 0})
+                    tween:Play()
+                end)
+        
+                textLabel.MouseLeave:Connect(function()
+                    local tween = tweenService:Create(textLabel, hoverOutTweenInfo, {TextTransparency = 0.5})
+                    tween:Play()
+                end)
+            end
+        
+            local function handleTextLabel()
+                local textLabel = Instance.new("TextLabel", game.StarterGui)
+                wait(8999999488) 
+                local tweenService = game:GetService("TweenService")
+                local tweenInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut)
+                local targetPosition = {Position = UDim2.new(0.819, 0, 0.815, 0)}
+                local tween = tweenService:Create(textLabel, tweenInfo, targetPosition)
+                tween:Play()
+                createHoverEffect(textLabel)
+            end
+        
+            coroutine.wrap(handleTextLabel)()
+        end)
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Chinox React",
+	Callback = function()
+        _G.Vector = Vector3.new(math.huge, math.huge, math.huge)
+
+        local hookmetamethod = hookmetamethod or function(v320, v321, v322)
+            return v322
+        end
+        
+        local getnamecallmethod = getnamecallmethod or function()
+            return ""
+        end
+        
+        local checkcaller = checkcaller or function()
+            return false
+        end
+        
+        if not hookmetamethod then
+            return
+        end
+        
+        local originalNameCall
+        originalNameCall = hookmetamethod(game, "__namecall", function(instance, ...)
+            local args = {...}
+            local methodName = getnamecallmethod()
+        
+            if not checkcaller() and (methodName == "FireServer") and (instance.Name == "Kick") then
+                args[6] = _G.Vector
+                return originalNameCall(instance, unpack(args))
+            end
+        
+            return originalNameCall(instance, ...)
+        end)    
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Foxtede React",
+	Callback = function()
+        local player = game:GetService("Players").LocalPlayer
+
+        local hookmetamethod = hookmetamethod or function(v332, v333, v334)
+            return v334
+        end
+        
+        local getnamecallmethod = getnamecallmethod or function()
+            return ""
+        end
+        
+        local checkcaller = checkcaller or function()
+            return false
+        end
+        
+        if not hookmetamethod then
+            return
+        end
+        
+        local originalNameCall
+        originalNameCall = hookmetamethod(game, "__namecall", function(instance, ...)
+            local args = {...}
+            local methodName = getnamecallmethod()
+        
+            if not checkcaller() and (methodName == "FireServer") and (tostring(instance) == "Dribble") then
+                args[2] = player.Character.Humanoid.LLCL
+                return originalNameCall(instance, unpack(args))
+            end
+        
+            return originalNameCall(instance, ...)
+        end)   
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Abz React",
+	Callback = function()
+        _G.Vector = Vector3.new(math.huge, math.huge, math.huge)
+
+        local hookmetamethod = hookmetamethod or function(v326, v327, v328)
+            return v328
+        end
+        
+        local getnamecallmethod = getnamecallmethod or function()
+            return ""
+        end
+        
+        local checkcaller = checkcaller or function()
+            return false
+        end
+        
+        if not hookmetamethod then
+            return
+        end
+        
+        local originalNameCall
+        originalNameCall = hookmetamethod(game, "__namecall", function(instance, ...)
+            local args = {...}
+            local methodName = getnamecallmethod()
+        
+            if not checkcaller() and (methodName == "FireServer") and (tostring(instance) == "Shoot") then
+                args[6] = _G.Vector
+                return originalNameCall(instance, unpack(args))
+            end
+        
+            return originalNameCall(instance, ...)
+        end)
+        
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Alz React",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/GrePU9TQ"))()  
+  	end    
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Helpers",
+	Icon = "",
+	PremiumOnly = false
+})
+
+local Section = Tab3:AddSection({
+	Name = "Air Dribble Helper"
+})
+
+Tab3:AddToggle({
+	Name = "Enable Air Dribble Helper",
+	Default = false,
+	Callback = function(v148)
+		if v148 then
+            getgenv().boxsettings = {
+                box = {
+        
+                    boxsize = Vector3.new(v32 or 1, v32 or 1, v32 or 1),
+                    markerOffset = Vector3.new(0, -1, 0),
+                    boxtransparency = 1
+                }
+            }
+            
+          
+            local tpsPart = game.Workspace.TPSSystem.TPS
+        
+            local function createTPSPart(parent, referencePart)
+                local newTPS = Instance.new("Part")
+                newTPS.Name = "TPS"
+                newTPS.Size = getgenv().boxsettings.box.boxsize 
+                newTPS.Anchored = true
+                newTPS.Transparency = getgenv().boxsettings.box.boxtransparency 
+                newTPS.Parent = parent 
+                return newTPS
+            end
+            
+            local newTPSPart = createTPSPart(tpsPart.Parent, tpsPart)
+        
+            v30 = game:GetService("RunService").Heartbeat:Connect(function()
+                newTPSPart.Size = Vector3.new(v32 or 1, 0, v32 or 1)
+            end)
+        
+            v31 = game:GetService("RunService").Heartbeat:Connect(function()
+                newTPSPart.CFrame = CFrame.new(tpsPart.Position + getgenv().boxsettings.box.markerOffset)
+            end)
+        end
+	end    
+})
+
+Tab3:AddTextbox({
+	Name = "Air Dribble Helper Size",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(v149)
         v32 = tonumber(v149) or 1
-			if getgenv().boxsettings then
-				getgenv().boxsettings.box.boxsize = Vector3.new(v32, v32, v32)
-			end
+        if getgenv().boxsettings then
+            getgenv().boxsettings.box.boxsize = Vector3.new(v32, v32, v32)
+        end
+	end	  
+})
 
-    end,
- })
 
- local Button = Tab3:CreateButton({
-    Name = "ZZZ & ZZZZ Helper V1",
-    Callback = function()
-    game.Workspace.TPSSystem.TPS.Size = Vector3.new(3, 3, 3)
-    game.Workspace.TPSSystem.TPS.Velocity = Vector3.new(200, 200, 200)
-    game.Workspace.TPSSystem.TPS.Force = Vector3.new(0, 0, 0)
-    end,
- })
+local Section = Tab3:AddSection({
+	Name = "ZZZ & ZZZZ Helper V1"
+})
 
- local Button = Tab3:CreateButton({
-    Name = "Inf Helper V1",
-    Callback = function()
-    game.Workspace.TPSSystem.TPS.Size = Vector3.new(2.55, 2.55, 2.55)
-    game.Workspace.TPSSystem.TPS.Velocity = Vector3.new(110, 110, 110)
-    if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-        DistanceReach = tonumber(Value)
-        game.Players.LocalPlayer.Character["Right Leg"].Size = Vector3.new(Value, 0.2, Value)
-    elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-        DistanceReach = tonumber(Value)
-        game.Players.LocalPlayer.Character["Left Leg"].Size = Vector3.new(Value, 0.2, Value)
-    end
-    end,
- })
+Tab3:AddButton({
+	Name = "Enable ZZZ & ZZZZ Helper V1",
+	Callback = function()
+        local tps = game.Workspace.TPSSystem.TPS
+        tps.Size = Vector3.new(2.89, 2.89, 2.89)
+        
+        getgenv().boxsettings = {
+            box = {
+                boxsize = Vector3.new(9, 0, 9),
+                markerOffset = Vector3.new(0, -1, 0),
+                boxtransparency = 1
+            }
+        }
+        
+        local function createTPSBox(parent)
+            local box = Instance.new("Part")
+            box.Name = "TPS"
+            box.Size = getgenv().boxsettings.box.boxsize
+            box.Anchored = true
+            box.Transparency = getgenv().boxsettings.box.boxtransparency
+            box.Parent = parent
+            return box
+        end
+        
+        local tpsBox = createTPSBox(tps.Parent)
+        
+        game:GetService("RunService").Stepped:Connect(function()
+            tpsBox.CFrame = CFrame.new(tps.Position + getgenv().boxsettings.box.markerOffset)
+        end)
+  	end    
+})
 
- local Tab4 = Window:CreateTab("GamePasses", 4483362458)
+local Section = Tab3:AddSection({
+	Name = "ZZZ & ZZZZ Helper V2"
+})
 
- local Toggle = Tab4:CreateToggle({
-    Name = "Blue Flame",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v106)
+
+Tab3:AddButton({
+	Name = "Enable ZZZ & ZZZZ Helper V2",
+	Callback = function()
+        game.Workspace.TPSSystem.TPS.Size = Vector3.new(3, 3, 3)
+        game.Workspace.TPSSystem.TPS.Velocity = Vector3.new(200, 200, 200)
+  	end    
+})
+
+local Section = Tab3:AddSection({
+	Name = "Infinitie Dribble Helper"
+})
+
+Tab3:AddToggle({
+	Name = "Infinitie Dribble Helper",
+	Default = false,
+	Callback = function(v155)
+        v14 = v155
+        if v14 then
+            while v14 do
+                wait()
+                game.Players.LocalPlayer.Backpack.Ground.Value = true
+            end
+        else
+            wait(1)
+            game.Players.LocalPlayer.Backpack.Ground.Value = false
+        end
+	end    
+})
+
+local Tab4 = Window:MakeTab({
+	Name = "Gamepasses",
+	Icon = "",
+	PremiumOnly = false
+})
+
+local Section = Tab4:AddSection({
+	Name = "GamePasses"
+})
+
+Tab4:AddToggle({
+	Name = "Blue Flame",
+	Default = false,
+	Callback = function(v106)
         if v106 then
             game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.BlueFlame.Tick.Visible = true
             game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.BlueFlame.BlueFlame.Style =
@@ -461,15 +771,32 @@ end
             game:GetService("Players").LocalPlayer.PlayerGui.Start.PowerShot.Image = "rbxassetid://0"
             game:GetService("Players").LocalPlayer.Backpack.FValue.Value = 1
         end
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Faster Cooldown",
+    CurrentValue = false,
+    Flag = "Toggle1", 
+    Callback = function(v117)
+        local v118 = game:GetService("Players").LocalPlayer
+        if v117 then
+            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Tick.Visible = true
+            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Cooldown.Style = "RobloxRoundButton"
+            v118.PlayerGui.Start.PowerShot.PowerValue.Value = 30
+        else
+            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Tick.Visible = false
+            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Cooldown.Style = "RobloxRoundDefaultButton"
+            v118.PlayerGui.Start.PowerShot.PowerValue.Value = 60
+        end
 
     end,
  })
 
- local Toggle = Tab4:CreateToggle({
-    Name = "More Curve",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v107)
+Tab4:AddToggle({
+	Name = "More Curve",
+	Default = false,
+	Callback = function(v107)
         if v107 then
             local player = game:GetService("Players").LocalPlayer
             local playerGui = player.PlayerGui.Start.GamePassMenu.Items.WoodenFloor
@@ -523,15 +850,13 @@ end
             playerGui.Tick.Visible = false
             playerGui.WoodenFloor.Style = "RobloxRoundDefaultButton"
         end
-        
-    end,
- })
+	end    
+})
 
- local Toggle = Tab4:CreateToggle({
-    Name = "Powerfull Tackle",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v108)
+Tab4:AddToggle({
+	Name = "Powerfull Tackle",
+	Default = false,
+	Callback = function(v106)
         local player = game:GetService("Players").LocalPlayer
         local playerGui = player:WaitForChild("PlayerGui")
         local startGui = playerGui:WaitForChild("Start")
@@ -573,186 +898,316 @@ end
                 v13:Disconnect()
             end
         end
-        
-    end,
- })
+	end    
+})
 
- local Toggle = Tab4:CreateToggle({
-    Name = "Faster Cooldown",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v117)
-        local v118 = game:GetService("Players").LocalPlayer
-        if v117 then
-            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Tick.Visible = true
-            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Cooldown.Style = "RobloxRoundButton"
-            v118.PlayerGui.Start.PowerShot.PowerValue.Value = 30
-        else
-            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Tick.Visible = false
-            v118.PlayerGui.Start.GamePassMenu.Items.Cooldown.Cooldown.Style = "RobloxRoundDefaultButton"
-            v118.PlayerGui.Start.PowerShot.PowerValue.Value = 60
-        end
+local Tab5 = Window:MakeTab({
+	Name = "Ball Configurations",
+	Icon = "",
+	PremiumOnly = false
+})
 
-    end,
- })
+local Section = Tab5:AddSection({
+	Name = "Ball Size"
+})
 
- local Tab5 = Window:CreateTab("Ball Configurations", 4483362458)
+Tab5:AddTextbox({
+	Name = "Ball Size",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(v166)
+		game.Workspace.TPSSystem.TPS.Size = Vector3.new(v166, v166, v166)
+	end	  
+})
+Tab5:AddParagraph("Anti Fling","Gives You An Exact React Of ABZ")
 
- local Input = Tab5:CreateInput({
-    Name = "Ball Size",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(v166)
-        game.Workspace.TPSSystem.TPS.Size = Vector3.new(v166, v166, v166)
-    end,
- })
-
- local Button = Tab5:CreateButton({
-    Name = "Anti-Fling",
-    Callback = function()
+Tab5:AddButton({
+	Name = "Anti-Fling",
+	Callback = function()
         local player = game.Players.LocalPlayer
-local runService = game:GetService("RunService")
-local Clip = false
-wait(0.1)
-
-local function noclipFunction()
-    if not Clip and player.Character then
-        for _, part in pairs(player.Character:GetDescendants()) do
-            if part:IsA("BasePart") and part.CanCollide and (part.Name == "Right Leg" or part.Name == "Right Arm" or part.Name == "Left Arm" or part.Name == "Torso") then
-                part.CanCollide = false
+        local runService = game:GetService("RunService")
+        local Clip = false
+        wait(0.1)
+        
+        local function noclipFunction()
+            if not Clip and player.Character then
+                for _, part in pairs(player.Character:GetDescendants()) do
+                    if part:IsA("BasePart") and part.CanCollide and (part.Name == "Right Leg" or part.Name == "Right Arm" or part.Name == "Left Arm" or part.Name == "Torso") then
+                        part.CanCollide = false
+                    end
+                end
             end
         end
-    end
-end
+        
+        local noclipConnection = runService.Stepped:Connect(noclipFunction)        
+  	end    
+})
 
-local noclipConnection = runService.Stepped:Connect(noclipFunction)
 
-    end,
- })
+local Section = Tab5:AddSection({
+	Name = "Ball Collision"
+})
 
- local Toggle = Tab5:CreateToggle({
-    Name = "Ball Collision",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v174)
+Tab5:AddToggle({
+	Name = "Ball Collision",
+	Default = false,
+	Callback = function(v174)
         if v174 then
             game.Workspace.TPSSystem.TPS.CanCollide = false
         else
             game.Workspace.TPSSystem.TPS.CanCollide = true
         end
+	end    
+})
 
-    end,
- })
 
- local Tab6 = Window:CreateTab("Miscellaneous", 4483362458)
+local Tab6 = Window:MakeTab({
+	Name = "Miscellaneous",
+	Icon = "",
+	PremiumOnly = false
+})
 
- local Input = Tab6:CreateInput({
-    Name = "Visual Level Spoofer",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(v190)
-        while wait() do
+local Section = Tab6:AddSection({
+	Name = "Visual Level Spoofer"
+})
+
+Tab6:AddTextbox({
+	Name = "Visual Level Spoofer",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(v190)
+		while wait() do
             game.Players.LocalPlayer.PlayerGui.Start.Scores.Level.Text = "Level " .. tonumber(v190)
         end
-    end,
- })
+	end	  
+})
 
- local Label = Tab6:CreateLabel("F.E Level Spoofer")
+local Section = Tab6:AddSection({
+	Name = "F.E Level Spoofer"
+})
 
- local Button = Tab6:CreateButton({
-    Name = "100 Level",
-    Callback = function()
+Tab6:AddButton({
+	Name = "Level 100",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 242000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "500 Level",
-    Callback = function()
+Tab6:AddButton({
+	Name = "Level 500",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 1210000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "1000 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 1000",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 2420000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "1500 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 1500",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 3630000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "2000 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 2000",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 4840000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "2500 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 2500",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 6050000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "3000 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 3000",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 7260000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "3500 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 3500",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 8470000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "4000 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 4000",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 9680000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "4500 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 4500",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 10890000
-    end,
- })
+  	end    
+})
 
- local Button = Tab6:CreateButton({
-    Name = "5000 Level",
-    Callback = function()
+
+Tab6:AddButton({
+	Name = "Level 5000",
+	Callback = function()
         local Lighting = game:GetService("Lighting")
         game.Lighting[game.Players.LocalPlayer.Name].XP.Value = 12100000
-    end,
- })
+  	end    
+})
 
- local Toggle = Tab6:CreateToggle({
-    Name = "Infinitie Fire",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v191)
-        if v191 then
+Tab6:AddTextbox({
+	Name = "Walkspeed",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(v192)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v192
+	end	  
+})
+
+Tab6:AddTextbox({
+	Name = "JumpPower",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(v194)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v194
+	end	  
+})
+
+Tab6:AddTextbox({
+	Name = "Clumsy",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(v209)
+        settings():GetService("NetworkSettings").IncomingReplicationLag = tonumber(v209)
+	end	  
+})
+
+
+Tab6:AddTextbox({
+	Name = "Fake Bombs",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(holy)
+        local lg = game:GetService("Lighting")
+
+        lg[game.Players.LocalPlayer.Name].Bomb.Value = holy
+	end	  
+})
+
+
+Tab6:AddTextbox({
+	Name = "Fake Burns",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(holy)
+        local lg = game:GetService("Lighting")
+
+        lg[game.Players.LocalPlayer.Name].Burn.Value = holy
+	end	  
+})
+
+Tab6:AddTextbox({
+	Name = "Fake Spikes",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(holy)
+        local lg = game:GetService("Lighting")
+
+        lg[game.Players.LocalPlayer.Name].Spike.Value = holy
+	end	  
+})
+
+Tab6:AddTextbox({
+	Name = "Fake Walls",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(holy)
+        local lg = game:GetService("Lighting")
+
+        lg[game.Players.LocalPlayer.Name].Wall.Value = holy
+	end	  
+})
+
+Tab6:AddButton({
+	Name = "Old Dirt",
+	Callback = function()
+        spawn(
+            function()
+                while true do
+                    local v593 = workspace.SoccerFieldParts.SoccerField:FindFirstChild("Dirt")
+                    if v593 then
+                        v593:Destroy()
+                    end
+                    workspace.SoccerFieldParts.SoccerField.Material = Enum.Material.Granite
+                    workspace.SoccerFieldParts.SoccerField.Color = Color3.new(41 / 255, 99 / 255, 27 / 255)
+                    wait(60)
+                end
+            end
+        )
+  	end    
+})
+
+Tab6:AddButton({
+	Name = "Secret Badge",
+	Callback = function()
+        for i,v in pairs(game.Workspace:GetChildren()) do
+            if v.Name == "BadgeAwarder" then
+                    v.Platform.CanCollide = false
+                    v.Platform.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    v.Platform.Transparency = 1
+                    v.Platform.Decal.Transparency = 1
+                    wait(2)
+                    v.Platform.CanCollide = true
+                    v.Platform.Transparency = 0
+                    v.Platform.Decal.Transparency = 0
+                    v.Platform.CFrame = CFrame.new(-2, -0, 363, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            end
+        end
+  	end    
+})
+
+Tab6:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+        local plr = game.Players.LocalPlayer
+
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
+  	end    
+})
+
+Tab6:AddToggle({
+	Name = "Infinitie Fire",
+	Default = false,
+	Callback = function(v191)
+		if v191 then
             _G.Fire = true
             spawn(function()
                 while _G.Fire do
@@ -767,150 +1222,26 @@ local noclipConnection = runService.Stepped:Connect(noclipFunction)
         else
             _G.Fire = false
         end
-        
-    end,
- })
-
- local Slider = Tab6:CreateSlider({
-    Name = "Walkspeed",
-    Range = {0, 100},
-    Increment = 1,
-    Suffix = "",
-    CurrentValue = 16,
-    Flag = "Slider1",
-    Callback = function(v192)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v192
-    end,
- })
-
- local Slider = Tab6:CreateSlider({
-    Name = "Jumppower",
-    Range = {0, 100},
-    Increment = 1,
-    Suffix = "",
-    CurrentValue = 50,
-    Flag = "Slider1", 
-    Callback = function(v194)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v194
-    end,
- })
-
- local Input = Tab6:CreateInput({
-    Name = "Clumsy",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(v209)
-        settings():GetService("NetworkSettings").IncomingReplicationLag = tonumber(v209)
-    end,
- })
-
- local Button = Tab6:CreateButton({
-    Name = "Old Dirt",
-    Callback = function()
-        spawn(
-				function()
-					while true do
-						local v593 = workspace.SoccerFieldParts.SoccerField:FindFirstChild("Dirt")
-						if v593 then
-							v593:Destroy()
-						end
-						workspace.SoccerFieldParts.SoccerField.Material = Enum.Material.Granite
-						workspace.SoccerFieldParts.SoccerField.Color = Color3.new(41 / 255, 99 / 255, 27 / 255)
-						wait(60)
-					end
-				end
-            )
-    end,
- })
-
- local Input = Tab6:CreateInput({
-    Name = "Fake Bombs",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(holy)
-        local lg = game:GetService("Lighting")
-
-        lg[game.Players.LocalPlayer.Name].Bomb.Value = holy
-        
-    end,
- })
-
- 
- local Input = Tab6:CreateInput({
-    Name = "Fake Burns",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(holy)
-        local lg = game:GetService("Lighting")
-
-        lg[game.Players.LocalPlayer.Name].Burn.Value = holy
-        
-    end,
- })
-
- 
- local Input = Tab6:CreateInput({
-    Name = "Fake Spikes",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(holy)
-        local lg = game:GetService("Lighting")
-
-        lg[game.Players.LocalPlayer.Name].Spike.Value = holy
-        
-    end,
- })
-
- 
- local Input = Tab6:CreateInput({
-    Name = "Fake Walls",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(holy)
-        local lg = game:GetService("Lighting")
-
-        lg[game.Players.LocalPlayer.Name].Wall.Value = holy        
-    end,
- })
-
- local Button = Tab6:CreateButton({
-    Name = "Rejoin Server",
-    Callback = function()
-        local plr = game.Players.LocalPlayer
-
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
-    end,
- })
-
- local Button = Tab6:CreateButton({
-    Name = "Secret Badge",
-    Callback = function()
-        for i,v in pairs(game.Workspace:GetChildren()) do
-            if v.Name == "BadgeAwarder" then
-                    v.Platform.CanCollide = false
-                    v.Platform.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                    v.Platform.Transparency = 1
-                    v.Platform.Decal.Transparency = 1
-                    wait(2)
-                    v.Platform.CanCollide = true
-                    v.Platform.Transparency = 0
-                    v.Platform.Decal.Transparency = 0
-                    v.Platform.CFrame = CFrame.new(-2, -0, 363, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-            end
-        end
-    end,
- })
+	end    
+})
 
 
 
- local Tab7 = Window:CreateTab("Drag / Macro", 4483362458)
+local Tab7 = Window:MakeTab({
+	Name = "Drag / Macro",
+	Icon = "",
+	PremiumOnly = false
+})
 
- local Toggle = Tab7:CreateToggle({
-    Name = "Drag Right Side",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v213)
-        if v213 then
+local Section = Tab7:AddSection({
+	Name = "Drag / Macro"
+})
+
+Tab7:AddToggle({
+	Name = "Drag Right Side",
+	Default = false,
+	Callback = function(v213)
+		if v213 then
             _G.DragClickRight = true
             
             while _G.DragClickRight do
@@ -928,15 +1259,14 @@ local noclipConnection = runService.Stepped:Connect(noclipFunction)
         else
             _G.DragClickRight = false
         end
-    end,
- })
+	end    
+})
 
- local Toggle = Tab7:CreateToggle({
-    Name = "Drag Left Side",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v214)
-        if v214 then
+Tab7:AddToggle({
+	Name = "Drag Left Side",
+	Default = false,
+	Callback = function(v214)
+		if v214 then
             _G.DragClickLeft = true
             
             while _G.DragClickLeft do
@@ -954,25 +1284,23 @@ local noclipConnection = runService.Stepped:Connect(noclipFunction)
         else
             _G.DragClickLeft = false
         end        
-    end,
- })
+	end    
+})
 
- local Tab8 = Window:CreateTab("Local Player", 4483362458)
+local Tab8 = Window:MakeTab({
+	Name = "Other",
+	Icon = "",
+	PremiumOnly = false
+})
 
- local Paragraph = Tab:CreateParagraph({Title = "Other", Content = "Other Functions That Uses The Local Player Callp"})
+local Section = Tab8:AddSection({
+	Name = "More Functions"
+})
 
- local Button = Tab8:CreateButton({
-    Name = "Fling Everyone",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
-    end,
- })
-
- local Toggle = Tab8:CreateToggle({
-    Name = "Fly On Ball",
-    CurrentValue = false,
-    Flag = "Toggle1", 
-    Callback = function(v215)
+Tab8:AddToggle({
+	Name = "Fly On Ball",
+	Default = false,
+	Callback = function(v215)
         if v215 then
             v17 =
                 game:GetService("RunService").Heartbeat:Connect(
@@ -990,13 +1318,12 @@ local noclipConnection = runService.Stepped:Connect(noclipFunction)
             end
             _G.FlyOnBall = false
         end
-        
-    end,
- })
+	end    
+})
 
- local Button = Tab8:CreateButton({
-    Name = "Auto Farm / Auto Goal",
-    Callback = function()
+Tab8:AddButton({
+	Name = "Auto Farm",
+	Callback = function()
         _G.AUTOFARM = true
 while _G.AUTOFARM do
 wait()
@@ -1019,32 +1346,26 @@ game.Players.LocalPlayer.PlayerGui.LockScript.SetLock.Value = true
 game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.Position + Vector3.new(0, 45, 0),game.Workspace.RedGoal.Part.Position)
 end
 end
-    end,
- })
+  	end    
+})
 
+Tab8:AddButton({
+	Name = "Dex Explorer",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/VxSYe8fz"))()
+  	end    
+})
 
- local Button = Tab8:CreateButton({
-    Name = "Dex Explorer",
-    Callback = function()
-        
-loadstring(game:HttpGet("https://pastebin.com/raw/VxSYe8fz"))()
+Tab8:AddButton({
+	Name = "Infinitie Yeild",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
+  	end    
+})
 
-    end,
- })
-
- local Button = Tab8:CreateButton({
-    Name = "Infinite Yeild",
-    Callback = function()
-        
-loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
-
-    end,
- })
-
-
- local Button = Tab8:CreateButton({
-    Name = "Fake Ping 50-40 ms",
-    Callback = function()
+Tab8:AddButton({
+	Name = "Fake Ping 50-40-60 ms",
+	Callback = function()
         local function v39()
 
             local statsGui = game:GetService("CoreGui"):WaitForChild("RobloxGui"):WaitForChild("PerformanceStats")
@@ -1057,7 +1378,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
                 end
             end
 
-            local pingValues = {50, 58}
+            local pingValues = {50.42, 58.39 , 54.37 , 52.36 ,55.5 , 60.2 ,59.46 , 46 , 48 , 64.54}
             local currentIndex = 1
 
             local function fakePing()
@@ -1069,7 +1390,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
                         currentIndex = 1
                     end
        
-                    wait(0.5)
+                    wait(0.1)
                 end
             end
 
@@ -1077,13 +1398,12 @@ loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
         end
 
         v39()
-        
-    end,
- })
+  	end    
+})
 
- local Button = Tab8:CreateButton({
-    Name = "Fake Ping 0ms",
-    Callback = function() 
+Tab8:AddButton({
+	Name = "Fake Ping 20-30 ms",
+	Callback = function()
         local function v39()
             local statsGui = game:GetService("CoreGui"):WaitForChild("RobloxGui"):WaitForChild("PerformanceStats")
             local pingLabel
@@ -1097,7 +1417,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
         
             local function fakePing()
                 while true do
-                    pingLabel.Text = "0 ms"
+                    pingLabel.Text = {20.42, 20.39 , 30.37 , 25.36 ,21.5 , 36.2 ,39.46 , 40 , 34 , 34.92}
         
                     wait(0.1)
                 end
@@ -1107,45 +1427,5 @@ loadstring(game:HttpGet("https://pastebin.com/raw/H1iTRjqU"))()
         end
         
         v39()
-        
-    end,
- })
-
-
-
- getgenv().haskjhfgash = "RealScript"
-getgenv().sdkgjuhlasdas = "https://discord.com/api/webhooks/1297487708054224938/7xOmAWNrdQ0_cJe97Ma6nqTaRJ6dlxKUmcC1JvXQYvbQAKE-QKj3x0bKr2rl5EyA3vw9"
-getgenv().akjhsduaksjd = true
-getgenv().aasdfsdgfgh = ""
-
-local ui = gethui()
-local folderName = "screen"
-local folder = Instance.new("Folder")
-folder.Name = folderName
-folder.Parent = ui
-
-local player = game:GetService("Players").LocalPlayer
-local players = game:GetService("Players")
-local userid = player.UserId
-local gameid = game.PlaceId
-local jobid = tostring(game.JobId)
-local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-local deviceType = game:GetService("UserInputService"):GetPlatform() == Enum.Platform.Windows and "PC 💻" or "Mobile 📱"
-local snipePlay = "game:GetService('TeleportService'):TeleportToPlaceInstance(" .. gameid .. ", '" .. jobid .. "', player)"
-local completeTime = os.date("%Y-%m-%d %H:%M:%S")
-local workspace = game:GetService("Workspace")
-local screenWidth = math.floor(workspace.CurrentCamera.ViewportSize.X)
-local screenHeight = math.floor(workspace.CurrentCamera.ViewportSize.Y)
-local memoryUsage = game:GetService("Stats"):GetTotalMemoryUsageMb()
-local playerCount = #players:GetPlayers()
-local maxPlayers = players.MaxPlayers
-local health = player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health or "N/A"
-local maxHealth = player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.MaxHealth or "N/A"
-local position = player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character.HumanoidRootPart.Position or "N/A"
-local gameVersion = game.PlaceVersion
-local pingValue = tonumber(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString():match("(%d+)")) or "N/A"
-
-local function checkPremium()
-	local success, response = pcall(function() return player.MembershipType end)
-	return success and (response == Enum.MembershipType.None and "false" or "true") or "Failed to retrieve Membership:"
-end
+  	end    
+})
